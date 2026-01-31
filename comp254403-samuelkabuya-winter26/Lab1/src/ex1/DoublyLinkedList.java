@@ -20,7 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package linkedlists;
+package week2.linkedlists;
 
 /**
  * A basic doubly linked list implementation.
@@ -177,6 +177,22 @@ public class DoublyLinkedList<E> {
     return remove(trailer.getPrev());            // last element is before trailer
   }
 
+  public void concat(DoublyLinkedList<E> otherList){
+    if (otherList.isEmpty()){
+      return;
+    }
+
+    Node<E> lastNodeL = this.trailer.getPrev();
+    Node<E> firstNodeM = otherList.header.getNext();
+
+    lastNodeL.setNext(firstNodeM);
+    firstNodeM.setPrev(lastNodeL);
+
+    this.trailer = otherList.trailer;
+
+    this.size += otherList.size();
+  };
+
   // private update methods
   /**
    * Adds an element to the linked list in between the given nodes.
@@ -231,11 +247,21 @@ public class DoublyLinkedList<E> {
 	  list.addFirst("MSP");
 	  list.addLast("ATL");
 	  list.addLast("BOS");
-	  //
-	  list.addFirst("LAX");
+      System.out.println("List 1:" + list);
 	  
-	  System.out.println(list);
-	  System.out.println(list.first());
-	  //
+      //list.addFirst("LAX");
+      // System.out.println(list);
+	  //System.out.println(list.first());
+
+    DoublyLinkedList<String> list2 = new DoublyLinkedList<>();
+    list2.addLast("A");
+    list2.addLast("B");
+    System.out.println("List 2:" + list2);
+
+    list.concat(list2);
+
+    System.out.println("Concatenated List:" + list);
+    System.out.println("List size:" + list.size());
+
   }
 } //----------- end of DoublyLinkedList class -----------
