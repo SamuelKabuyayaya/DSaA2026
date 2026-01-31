@@ -220,18 +220,78 @@ public class SinglyLinkedList<E> implements Cloneable {
     sb.append(")");
     return sb.toString();
   }
+
+  public void swapNodes(Node<E> node1, Node<E> node2){
+      if (node1 == node2) return;
+
+      Node<E> prev1 = null;
+      Node<E> prev2 = null;
+      Node<E> current = head;
+
+      while (current != null){
+          if (current.getNext()==node1) prev1 = current;
+          if (current.getNext()==node2) prev2 = current;
+          current = current.getNext();
+      }
+
+      if (prev1 != null){
+          prev1.setNext(node2);
+      }else{
+          head = node2;
+      }
+      if (prev2 != null){
+          prev2.setNext(node1);
+      }else{
+          head = node1;
+      }
+
+      Node<E> tempNext = node1.getNext();
+      node1.setNext(node2.getNext());
+      node2.setNext(tempNext);
+
+      if(node1.getNext() == null) tail = node1;
+      if(node2.getNext() == null) tail = node2;
+
+  }
+
   //main method
   public static void main(String[] args)
   {
-	  
-	  SinglyLinkedList<String> list = new SinglyLinkedList<String>();
-	  list.addFirst("MSP");
-	  list.addLast("ATL");
-	  list.addLast("BOS");
+	  SinglyLinkedList<String> list = new SinglyLinkedList<>();
+      list.addLast("A");
+      list.addLast("B");
+      list.addLast("C");
+      list.addLast("D");
+      list.addLast("E");
+
+      System.out.println("Normal list: " + list);
+
+      Node<String> nodeB = null;
+      Node<String> walk = list.head;
+      while (walk != null) {
+          if (walk.getElement().equals("B")) nodeB = walk;
+          walk = walk.getNext();
+      }
+
+      Node<String> nodeD = null;
+      walk = list.head;
+      while (walk != null) {
+          if (walk.getElement().equals("D")) nodeD = walk;
+          walk = walk.getNext();
+      }
+
+      System.out.println("Swapping stuff");
+      list.swapNodes(nodeB, nodeD);
+
+      System.out.println("Swapped list: "+ list);
+
+	  //SinglyLinkedList<String> list = new SinglyLinkedList<String>();
+	  //list.addFirst("MSP");
+	  //list.addLast("ATL");
+	  //list.addLast("BOS");
 	  //
-	  list.addFirst("LAX");
-	  System.out.println(list);
-	  //
+	  //list.addFirst("LAX");
+	  //System.out.println(list);
   }
   
 }
