@@ -32,7 +32,7 @@ import week2.linkedlists.SinglyLinkedList;
  * @author Roberto Tamassia
  * @author Michael H. Goldwasser
  */
-public class CircularlyLinkedList<E> implements Cloneable {
+public class CircularlyLinkedList<E> implements Cloneable { ///!!!!!!!!!!
     //---------------- nested Node class ----------------
     /**
      * Singly linked node, which stores a reference to its element and
@@ -185,21 +185,21 @@ public class CircularlyLinkedList<E> implements Cloneable {
 
 
     public CircularlyLinkedList<E> clone() throws CloneNotSupportedException {
-        CircularlyLinkedList<E> other = (CircularlyLinkedList<E>) super.clone(); 
+        CircularlyLinkedList<E> other = (CircularlyLinkedList<E>) super.clone(); //!!!!!!!!!!
         if (size > 0) {                    
-            Node<E> head = tail.getNext();
+            Node<E> head = tail.getNext();//!!!!!!!!!!!
             Node<E> newHead = new Node<>(head.getElement(), null);
             Node<E> otherTail = newHead;
 
             Node<E> walk = head.getNext();
 
-            while (walk != head) {              
+            while (walk != head) {   //!!!!!!!!!!!!!
                 Node<E> newest = new Node<>(walk.getElement(), null);
                 otherTail.setNext(newest);    
                 otherTail = newest;
                 walk = walk.getNext();
             }
-            otherTail.setNext(newHead);
+            otherTail.setNext(newHead);//!!!!!!!
             other.tail = otherTail;
         }
         return other;

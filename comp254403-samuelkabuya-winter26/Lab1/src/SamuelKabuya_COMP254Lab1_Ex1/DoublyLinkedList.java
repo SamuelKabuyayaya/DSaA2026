@@ -20,7 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package week2.linkedlists;
+package SamuelKabuya_COMP254Lab1_Ex1;
 
 /**
  * A basic doubly linked list implementation.

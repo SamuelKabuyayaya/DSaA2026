@@ -177,19 +177,18 @@ public class DoublyLinkedList<E> {
     return remove(trailer.getPrev());            // last element is before trailer
   }
 
-  public void concat(DoublyLinkedList<E> otherList){
+  public void concat(DoublyLinkedList<E> otherList){ //!!!!!!!!!!
     if (otherList.isEmpty()){
       return;
     }
 
-    Node<E> lastNodeL = this.trailer.getPrev();
+    Node<E> lastNodeL = this.trailer.getPrev(); //!!!!!!!!!
     Node<E> firstNodeM = otherList.header.getNext();
 
-    lastNodeL.setNext(firstNodeM);
+    lastNodeL.setNext(firstNodeM);//!!!!!!!!!!
     firstNodeM.setPrev(lastNodeL);
 
-    this.trailer = otherList.trailer;
-
+    this.trailer = otherList.trailer;////!!!!!
     this.size += otherList.size();
   };
 

@@ -222,9 +222,9 @@ public class SinglyLinkedList<E> implements Cloneable {
   }
 
   public void swapNodes(Node<E> node1, Node<E> node2){
-      if (node1 == node2) return;
+      if (node1 == node2) return;//!!!!!!!!!!!!!
 
-      Node<E> prev1 = null;
+      Node<E> prev1 = null;//!!!!!!!!!!!!!!
       Node<E> prev2 = null;
       Node<E> current = head;
 
@@ -234,7 +234,7 @@ public class SinglyLinkedList<E> implements Cloneable {
           current = current.getNext();
       }
 
-      if (prev1 != null){
+      if (prev1 != null){//!!!!!!!!!!
           prev1.setNext(node2);
       }else{
           head = node2;
@@ -245,7 +245,7 @@ public class SinglyLinkedList<E> implements Cloneable {
           head = node1;
       }
 
-      Node<E> tempNext = node1.getNext();
+      Node<E> tempNext = node1.getNext();////!!!!!!!!
       node1.setNext(node2.getNext());
       node2.setNext(tempNext);
 
