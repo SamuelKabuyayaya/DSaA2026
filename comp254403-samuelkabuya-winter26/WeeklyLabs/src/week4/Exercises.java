@@ -32,6 +32,10 @@ package week4;/*
 class Exercises {
 
   /** Returns the sum of the integers in given array. */
+  /*
+  Big-Oh: 0(n)
+  Loop goes through the array once using a single loop that runs 'n' times. Each operation inside the loop takes constant time.
+  */
   public static int example1(int[] arr) {
     int n = arr.length, total = 0;
     for (int j=0; j < n; j++)       // loop from 0 to n-1
@@ -40,6 +44,10 @@ class Exercises {
   }
 
   /** Returns the sum of the integers with even index in given array. */
+  /*
+  Big-Oh: 0(n)
+  .Loop goes the array by incremation of 2(j += 2), so it does the n/2 iterations. In Big-Oh we will drop constants so 0(n/2) will become 0(n)
+  */
   public static int example2(int[] arr) {
     int n = arr.length, total = 0;
     for (int j=0; j < n; j += 2)    // note the increment of 2
