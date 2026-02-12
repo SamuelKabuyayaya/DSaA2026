@@ -9,9 +9,23 @@ public class PrefixAverageExperiment {
         try{
             if(args.length > 0) trial = Integer.parseInt(args[0]);
             if(args.length > 1) n = Integer.parseInt(args[1]);
-        } catch (NumberFormatException e) {}
-        int star = n;
+        } catch (NumberFormatException e) { }
 
+        int start = n;
+
+        System.out.println("Testing prefixAverage1, slower one");
+        n = start;
+
+        for (int t = 0; t < trial; t++){
+            double[] data = new double[n];
+
+            long startTime = System.currentTimeMillis();
+            PrefixAverage.prefixAverage1(data);
+            long endTime = System.currentTimeMillis();
+
+            long elapsed = endTime - startTime;
+            System.out.println(String.format("n: %9d took %12d milliseconds", n, elapsed));
+            n *= 2;
+        }
     }
-
 }
