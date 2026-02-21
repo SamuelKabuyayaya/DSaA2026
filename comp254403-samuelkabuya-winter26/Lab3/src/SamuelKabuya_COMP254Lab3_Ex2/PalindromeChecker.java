@@ -23,9 +23,9 @@ public class PalindromeChecker {
         String input = scanner.nextLine();
 
         if (isPalindrome(input)) {
-            System.out.println("Result: " + input + "is a palindrome.");
+            System.out.println("Result: " + input + " is a palindrome.");
         }else{
-            System.out.println("Result: " + input + "is not a palindrome.");
+            System.out.println("Result: " + input + " is not a palindrome.");
         }
         scanner.close();
     }

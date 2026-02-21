@@ -30,7 +30,6 @@ public class UniqnessExperiment {
         int n = low;
         long elapsed = 0;
 
-
         while (elapsed < targetTime) {
             int[] data = new int[n];
             for (int i = 0; i < n; i++) data[i] = i;
@@ -59,6 +58,9 @@ public class UniqnessExperiment {
     public static void main(String[] args) {
         System.out.println("Running Experiment for unique1 (O(n^2))");
         findMaxN(10000, 60000, true);
+
+        //System.out.println("Running Experiment for unique2 (O(n log n))");
+        //findMaxN(1000000, 60000, false);
 
     }
 }
