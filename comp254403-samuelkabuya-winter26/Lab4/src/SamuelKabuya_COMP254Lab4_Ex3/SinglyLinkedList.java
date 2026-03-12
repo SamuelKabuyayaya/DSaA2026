@@ -219,4 +219,25 @@ public class SinglyLinkedList<E> implements Cloneable {
     sb.append(")");
     return sb.toString();
   }
+
+    //This is a method I stole from my other week class.
+    public void concat(SinglyLinkedList<E> other){
+      if (other.isEmpty()) return;
+
+      if (isEmpty()){
+          this.head = other.head;
+      }else{
+          this.tail.setNext(other.head);
+      }
+
+      this.tail = other.tail;
+      this.size += other.size;
+
+      other.head = null;
+      other.tail = null;
+      other.size = 0;
+    }
+
+
+
 }
