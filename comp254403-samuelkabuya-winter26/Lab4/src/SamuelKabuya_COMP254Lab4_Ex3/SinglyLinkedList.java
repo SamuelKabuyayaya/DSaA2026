@@ -20,7 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package stacks;
+package SamuelKabuya_COMP254Lab4_Ex3;
 
 /**
  * A basic singly linked list implementation.
@@ -237,7 +237,5 @@ public class SinglyLinkedList<E> implements Cloneable {
       other.tail = null;
       other.size = 0;
     }
-
-
 
 }
