@@ -1,7 +1,5 @@
 package SamuelKabuya_COMP254Lab5_Ex2;
 
-import SamuelKabuya_COMP254Lab5_Ex1.Exercise1;
-
 public class Exercise2 {
 
     static class Node {
@@ -23,9 +21,7 @@ public class Exercise2 {
         int rightH = printHeights(p.right);
 
         int currentHeight = 1 + Math.max(leftH, rightH);
-
         System.out.println("Element: " + p.element + " Height: " + currentHeight);
-
         return currentHeight;
     }
 
