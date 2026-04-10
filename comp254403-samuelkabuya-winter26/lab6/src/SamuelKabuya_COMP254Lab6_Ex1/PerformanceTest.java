@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class PerformanceTest {
     public static void main(String[] args) {
-        int n = 100000; // element ammount
+        int n = 100000; // element amount
         double[] factors = {0.2, 0.5, 0.75, 0.9}; // different limits
 
         System.out.println("ChainHashMap: ");

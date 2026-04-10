@@ -57,7 +57,7 @@ public abstract class AbstractHashMap<K,V> extends AbstractMap<K,V> {
     public AbstractHashMap(int cap, int p, double load) {
         prime = p;
         capacity = cap;
-        maxLoadFactor = load; //****************
+        maxLoadFactor = load; //added this so that I can initialize a custom threshold for resizing the table
         Random rand = new Random();
         scale = rand.nextInt(prime-1) + 1;
         shift = rand.nextInt(prime);
@@ -66,7 +66,7 @@ public abstract class AbstractHashMap<K,V> extends AbstractMap<K,V> {
 
     /** Creates a hash table with given capacity and prime factor 109345121. */
     public AbstractHashMap(int cap, double load) { this(cap, 109345121, load); }  // default prime
-    public AbstractHashMap(int cap) { this(cap, 0.5); } // I added this to make it work with my
+    public AbstractHashMap(int cap) { this(cap, 0.5); } // I added this to make it work with my code
 
     /** Creates a hash table with capacity 17 and prime factor 109345121. */
     public AbstractHashMap() { this(17, 0.5); }                   // default capacity
@@ -108,7 +108,7 @@ public abstract class AbstractHashMap<K,V> extends AbstractMap<K,V> {
     @Override
     public V put(K key, V value) {
         V answer = bucketPut(hashValue(key), key, value);
-        if (n > capacity * maxLoadFactor)              // keep load factor <= 0.5 (I changed 2 to maxLoadFactor to make it all work)
+        if (n > capacity * maxLoadFactor)            // keeps load factor <= 0.5 (I changed 2 to maxLoadFactor to make it all work)
             resize(2 * capacity - 1);        // (or find a nearby prime)
         return answer;
     }

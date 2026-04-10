@@ -78,7 +78,6 @@ public class SortedTableMap<K,V> extends AbstractSortedMap<K,V> {
         checkKey(key); //checking if key is valid
         int j = findIndex(key); //Using binary search to locate key's position
         return j < size() && compare(key,table.get(j)) == 0; //the key is found only if the index is withing bounds and index matches our target
-
     }
 
     /**
