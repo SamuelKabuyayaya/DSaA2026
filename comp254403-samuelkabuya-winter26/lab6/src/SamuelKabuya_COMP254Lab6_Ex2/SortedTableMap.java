@@ -74,10 +74,11 @@ public class SortedTableMap<K,V> extends AbstractSortedMap<K,V> {
     /** Version of findIndex that searches the entire table */
     private int findIndex(K key) { return findIndex(key, 0, table.size() - 1); }
 
-    public boolean containKey(K key)
-    {
-        //use findIndex method to check for the key in your map
-        return true;
+    public boolean containKey(K key) throws IllegalArgumentException {
+        checkKey(key); //checking if key is valid
+        int j = findIndex(key); //Using binary search to locate key's position
+        return j < size() && compare(key,table.get(j)) == 0; //the key is found only if the index is withing bounds and index matches our target
+
     }
 
     /**
